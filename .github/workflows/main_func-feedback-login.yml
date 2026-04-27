@@ -27,8 +27,9 @@ jobs:
 
       - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v4
-        with: |+
+        with:
           java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
 
       - name: 'Restore Project Dependencies Using Mvn'
         shell: pwsh
