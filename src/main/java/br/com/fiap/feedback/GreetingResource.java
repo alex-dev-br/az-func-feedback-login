@@ -16,24 +16,24 @@ public class GreetingResource {
         return "{\"message\": \"sign-in\"}";
     }
 
-    @GET
-    @Path("async/sign-in")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Mono<String> signInAsync() {
-        return Mono.just("{\"message\": \"sign-in\"}");
-    }
-
-    @GET
-    @Path("sign-up")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String signUp() {
-        return "{\"message\": \"sign-up\"}";
-    }
-
-    @GET
-    @Path("async/sign-up")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Mono<String> signUpAsync() {
-        return Mono.just("{\"message\": \"sign-up\"}");
-    }
+//    @GET
+//    @Path("async/sign-in")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Mono<String> signInAsync() {
+//        return Mono.just("{\"message\": \"sign-in\"}");
+//    }
+//
+//    @GET
+//    @Path("sign-up")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String signUp() {
+//        return "{\"message\": \"sign-up\"}";
+//    }
+//
+//    @GET
+//    @Path("async/sign-up")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Mono<String> signUpAsync() {
+//        return Mono.just("{\"message\": \"sign-up\"}");
+//    }
 }
