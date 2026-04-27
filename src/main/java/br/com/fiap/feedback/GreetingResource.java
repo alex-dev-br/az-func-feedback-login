@@ -11,7 +11,7 @@ public class GreetingResource {
 
     @FunctionName("func-feedback-login")
     public HttpResponseMessage signIn (
-            @HttpTrigger(name = "authentication", route = "/authentication", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
+            @HttpTrigger(name = "authentication", route = "sign-in", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext executionContext) {
         executionContext.getLogger().info("Java HTTP trigger processed a request.");
@@ -20,7 +20,7 @@ public class GreetingResource {
 
     @FunctionName("func-feedback-sign-up")
     public HttpResponseMessage signUp (
-            @HttpTrigger(name = "authentication", route = "/sign-up", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
+            @HttpTrigger(name = "authentication", route = "sign-up", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext executionContext) {
         executionContext.getLogger().info("Java HTTP trigger processed a request.");
