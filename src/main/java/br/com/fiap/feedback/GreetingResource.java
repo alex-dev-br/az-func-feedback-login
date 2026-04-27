@@ -1,29 +1,24 @@
 package br.com.fiap.feedback;
 
-import com.microsoft.azure.functions.*;
-import com.microsoft.azure.functions.annotation.AuthorizationLevel;
-import com.microsoft.azure.functions.annotation.FunctionName;
-import com.microsoft.azure.functions.annotation.HttpTrigger;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
-import java.util.Optional;
-
+@Path("/")
 public class GreetingResource {
 
-    @FunctionName("func-feedback-sign-in")
-    public HttpResponseMessage signIn (
-            @HttpTrigger(name = "sign-in", route = "sign-in", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext executionContext) {
-        executionContext.getLogger().info("Fazendo login ...");
-        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"sign-in\"}").build();
+    @GET
+    @Path("sign-in")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String signIn() {
+        return "{\"message\": \"sign-in\"}";
     }
 
-    @FunctionName("func-feedback-sign-up")
-    public HttpResponseMessage signUp (
-            @HttpTrigger(name = "sign-up", route = "sign-up", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext executionContext) {
-        executionContext.getLogger().info("Criando usuário ...");
-        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"sign-up\"}").build();
+    @GET
+    @Path("sign-up")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String signUp() {
+        return "{\"message\": \"sign-up\"}";
     }
 }
