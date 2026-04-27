@@ -9,21 +9,21 @@ import java.util.Optional;
 
 public class GreetingResource {
 
-    @FunctionName("func-feedback-login")
+    @FunctionName("func-feedback-sign-in")
     public HttpResponseMessage signIn (
-            @HttpTrigger(name = "authentication", route = "sign-in", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
+            @HttpTrigger(name = "sign-in", route = "sign-in", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext executionContext) {
-        executionContext.getLogger().info("Java HTTP trigger processed a request.");
-        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"Hello, World!\"}").build();
+        executionContext.getLogger().info("Fazendo login ...");
+        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"sign-in\"}").build();
     }
 
     @FunctionName("func-feedback-sign-up")
     public HttpResponseMessage signUp (
-            @HttpTrigger(name = "authentication", route = "sign-up", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
+            @HttpTrigger(name = "sign-up", route = "sign-up", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext executionContext) {
-        executionContext.getLogger().info("Java HTTP trigger processed a request.");
-        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"Hello, World!\"}").build();
+        executionContext.getLogger().info("Criando usuário ...");
+        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"sign-up\"}").build();
     }
 }
