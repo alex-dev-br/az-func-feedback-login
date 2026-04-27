@@ -1,18 +1,29 @@
 package br.com.fiap.feedback;
 
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
+import com.microsoft.azure.functions.annotation.HttpTrigger;
 
-@Path("/authetication")
+import java.util.Optional;
+
 public class GreetingResource {
 
     @FunctionName("func-feedback-login")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String hello() {
-        return "{\"message\": \"hello\"}";
+    public HttpResponseMessage signIn (
+            @HttpTrigger(name = "authentication", route = "/authentication", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext executionContext) {
+        executionContext.getLogger().info("Java HTTP trigger processed a request.");
+        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"Hello, World!\"}").build();
+    }
+
+    @FunctionName("func-feedback-sign-up")
+    public HttpResponseMessage signUp (
+            @HttpTrigger(name = "authentication", route = "/sign-up", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext executionContext) {
+        executionContext.getLogger().info("Java HTTP trigger processed a request.");
+        return request.createResponseBuilder(HttpStatus.OK).body("{\"message\": \"Hello, World!\"}").build();
     }
 }
