@@ -16,11 +16,14 @@ import br.com.fiap.feedback.core.controller.UserController;
 import br.com.fiap.feedback.core.domain.UserType;
 import br.com.fiap.feedback.core.exception.UserNotFoundException;
 import br.com.fiap.feedback.core.outbound.UserOutput;
+import br.com.fiap.feedback.infra.config.IntegrationTestProfile;
 import br.com.fiap.feedback.infra.resource.request.SignInRequest;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.junit.TestProfile;
 
 @QuarkusTest
+@TestProfile(IntegrationTestProfile.class)
 @DisplayName("Testes para o Recurso de Login (SignInResource)")
 class SignInResourceTest {
 
