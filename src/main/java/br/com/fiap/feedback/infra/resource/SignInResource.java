@@ -1,5 +1,9 @@
 package br.com.fiap.feedback.infra.resource;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
+import com.azure.security.keyvault.secrets.SecretClient;
+
 import br.com.fiap.feedback.core.controller.UserController;
 import br.com.fiap.feedback.core.inbound.SignInInput;
 import br.com.fiap.feedback.infra.resource.request.SignInRequest;

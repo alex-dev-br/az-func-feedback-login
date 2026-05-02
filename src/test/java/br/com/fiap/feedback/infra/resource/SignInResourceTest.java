@@ -38,8 +38,8 @@ class SignInResourceTest {
         @DisplayName("Deve realizar login com sucesso e retornar 200 com o token")
         void deveRealizarLoginComSucesso() throws UserNotFoundException {
             // Arrange
-            var request = new SignInRequest("usuario.valido", "senha123");
-            var userOutput = new UserOutput(UUID.randomUUID(), "usuario.valido", UserType.ALUNO);
+            var request = new SignInRequest("aluno.teste", "senha123");
+            var userOutput = new UserOutput(UUID.randomUUID(), "aluno.teste", UserType.ALUNO);
 
             given(userController.signIn(any())).willReturn(userOutput);
 
