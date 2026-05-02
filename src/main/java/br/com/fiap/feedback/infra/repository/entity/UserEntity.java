@@ -1,4 +1,4 @@
-package br.com.fiap.feedback.infra.repository;
+package br.com.fiap.feedback.infra.repository.entity;
 
 import br.com.fiap.feedback.core.domain.UserType;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
@@ -31,6 +31,38 @@ public class UserEntity extends PanacheEntityBase {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.userType = userType;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 }

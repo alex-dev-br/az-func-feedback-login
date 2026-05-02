@@ -4,7 +4,6 @@ import br.com.fiap.feedback.core.domain.User;
 import br.com.fiap.feedback.core.domain.UserType;
 import br.com.fiap.feedback.infra.repository.entity.UserEntity;
 import br.com.fiap.feedback.infra.repository.panache.UserPanacheRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -42,7 +41,7 @@ class UserRepositoryTest {
             var id = UUID.randomUUID();
             var username = "tester";
             var entity = new UserEntity(id, username, "senha", UserType.PROFESSOR);
-            
+
             given(userPanacheRepository.findByUsername(username)).willReturn(Optional.of(entity));
 
             // When
@@ -54,7 +53,7 @@ class UserRepositoryTest {
             assertThat(result.get().getUsername()).isEqualTo(username);
             assertThat(result.get().getPassword()).isEqualTo("senha");
             assertThat(result.get().getUserType()).isEqualTo(UserType.PROFESSOR);
-            
+
             then(userPanacheRepository).should().findByUsername(username);
         }
 

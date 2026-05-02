@@ -83,6 +83,11 @@
             <artifactId>quarkus-hibernate-orm-panache</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.quarkiverse.opentelemetry.exporter</groupId>
+            <artifactId>quarkus-opentelemetry-exporter-azure</artifactId>
+            <version>3.31.4.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-flyway</artifactId>
         </dependency>
@@ -222,6 +227,7 @@
                         <exclude>br/com/fiap/feedback/infra/config/*.class</exclude>
                         <exclude>br/com/fiap/feedback/infra/resource/request/*.class</exclude>
                         <exclude>br/com/fiap/feedback/infra/resource/response/*.class</exclude>
+                        <exclude>br/com/fiap/feedback/infra/repository/entity/*.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

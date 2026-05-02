@@ -4,13 +4,11 @@ import br.com.fiap.feedback.core.controller.UserController;
 import br.com.fiap.feedback.core.gateway.PasswordEncoderGateway;
 import br.com.fiap.feedback.core.gateway.UserGateway;
 import br.com.fiap.feedback.core.usecase.SignInUsecase;
-import br.com.fiap.feedback.infra.repository.UserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 
 @ApplicationScoped
 public class Producers {
-
 
     @Produces
     @ApplicationScoped
