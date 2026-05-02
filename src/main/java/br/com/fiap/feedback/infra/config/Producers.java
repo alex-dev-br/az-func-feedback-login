@@ -11,11 +11,6 @@ import jakarta.enterprise.inject.Produces;
 @ApplicationScoped
 public class Producers {
 
-    @Produces
-    @ApplicationScoped
-    public UserGateway userGatewayProduce() {
-        return new UserRepository();
-    }
 
     @Produces
     @ApplicationScoped

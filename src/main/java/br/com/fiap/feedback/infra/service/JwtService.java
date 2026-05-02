@@ -24,7 +24,7 @@ public class JwtService {
     @Timed(value = "jwt.generate.duration", description = "Tempo de geração do token JWT", histogram = true)
     public JwtBearerToken generateJwtBearerToken(UserOutput user) {
         LOG.info("Gerando token JWT para o usuário: {}", user.username());
-        
+
         Instant now = Instant.now();
         Instant expiresAt = now.plusSeconds(lifespan);
 
