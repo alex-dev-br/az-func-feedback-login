@@ -21,45 +21,32 @@ import jakarta.ws.rs.core.Response;
 @Path("/")
 public class SignInResource {
 
-    // private final UserController userController;
-    // private final JwtService jwtService;
-    // private static final Logger LOG =
-    // LoggerFactory.getLogger(SignInResource.class);
+    private final UserController userController;
+    private final JwtService jwtService;
+    private static final Logger LOG = LoggerFactory.getLogger(SignInResource.class);
 
-    // @Inject
-    // public SignInResource(UserController userController, JwtService jwtService) {
-    // this.userController = userController;
-    // this.jwtService = jwtService;
-    // }
-
-    // @POST
-    // @PermitAll
-    // @Path("sign-in")
-    // @Consumes(MediaType.APPLICATION_JSON)
-    // @Produces(MediaType.APPLICATION_JSON)
-    // @Counted(value = "logins.attempted", description = "Quantidade de tentativas
-    // de login (com e sem sucesso)")
-    // @Timed(value = "logins.duration", description = "Tempo de processamento do
-    // login", histogram = true)
-    // public Response signIn(@Valid SignInRequest request) {
-    // LOG.info("Iniciando tentativa de login para o usuário: {}",
-    // request.username());
-
-    // var userOutput = userController.signIn(new SignInInput(request.username(),
-    // request.password()));
-
-    // LOG.info("Login efetuado com sucesso para o usuário: {}",
-    // request.username());
-
-    // var jwtBearerToken = jwtService.generateJwtBearerToken(userOutput);
-    // return Response.ok().entity(jwtBearerToken).build();
-    // }
+    @Inject
+    public SignInResource(UserController userController, JwtService jwtService) {
+        this.userController = userController;
+        this.jwtService = jwtService;
+    }
 
     @POST
+    @PermitAll
     @Path("sign-in")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response signIn() {
-        return Response.ok("OK").build();
+    @Counted(value = "logins.attempted", description = "Quantidade de tentativas de login (com e sem sucesso)")
+    @Timed(value = "logins.duration", description = "Tempo de processamento do login", histogram = true)
+    public Response signIn(@Valid SignInRequest request) {
+        LOG.info("Iniciando tentativa de login para o usuário: {}", request.username());
+
+        var userOutput = userController.signIn(new SignInInput(request.username(), request.password()));
+
+        LOG.info("Login efetuado com sucesso para o usuário: {}", request.username());
+
+        var jwtBearerToken = jwtService.generateJwtBearerToken(userOutput);
+        return Response.ok().entity(jwtBearerToken).build();
     }
+
 }
