@@ -1,4 +1,4 @@
-name: Build and deploy Java project to Azure Function App - func-feedback-login
+name: Build and deploy Java project to Azure Function App - func-feedback-platform-login
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_NAME: func-feedback-login # set this to your function app name on Azure
+  AZURE_FUNCTIONAPP_NAME: func-feedback-platform-login # set this to your function app name on Azure
   PACKAGE_DIRECTORY: '.' # set this to the directory which contains pom.xml file
   JAVA_VERSION: '25' # set this to the java version to use
 
@@ -48,6 +48,5 @@ jobs:
         with:
           app-name: 'func-feedback-platform-login'
           slot-name: 'Production'
-          package: '${{ env.PACKAGE_DIRECTORY }}'
-          respect-pom-xml: true
+          package: 'target/azure-functions/func-feedback-platform-login'
           
