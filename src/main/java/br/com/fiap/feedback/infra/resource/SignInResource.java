@@ -36,8 +36,8 @@ public class SignInResource {
     @Path("sign-in")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Counted(value = "logins.attempted", description = "Quantidade de tentativas de login (com e sem sucesso)")
-    @Timed(value = "logins.duration", description = "Tempo de processamento do login", histogram = true)
+    @Counted(value = "signin.attempted", description = "Quantidade de tentativas de login (com e sem sucesso)")
+    @Timed(value = "signin.duration", description = "Tempo de processamento do login", histogram = true)
     public Response signIn(@Valid SignInRequest request) {
         LOG.info("Iniciando tentativa de login para o usuário: {}", request.username());
 

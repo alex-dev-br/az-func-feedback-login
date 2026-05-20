@@ -149,8 +149,8 @@ A tabela a seguir descreve as principais métricas customizadas coletadas pela a
 
 | Métrica Completa | Tipo | Descrição |
 | :--- | :--- | :--- |
-| `feedback.login.logins.attempted` | `Counter` | Quantidade acumulada de tentativas de login, independentemente se foram bem-sucedidas ou falhas. |
-| `feedback.login.logins.duration` | `Timer` / `Histogram` | Medição e distribuição do tempo de processamento completo da requisição de login. |
+| `feedback.login.signin.attempted` | `Counter` | Quantidade acumulada de tentativas de login, independentemente se foram bem-sucedidas ou falhas. |
+| `feedback.login.signin.duration` | `Timer` / `Histogram` | Medição e distribuição do tempo de processamento completo da requisição de login. |
 | `feedback.login.jwt.generate` | `Counter` | Quantidade acumulada de tokens JWT que foram gerados e assinados com sucesso. |
 | `feedback.login.jwt.generate.duration` | `Timer` / `Histogram` | Tempo necessário para assinar digitalmente e construir a estrutura do token JWT. |
 | `feedback.login.http.server.requests` | `Timer` / `Histogram` | Estatísticas globais de requisições recebidas pelo servidor HTTP do Quarkus (tempo de resposta, status HTTP, etc.). |
